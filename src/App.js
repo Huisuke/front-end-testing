@@ -19,6 +19,7 @@ const tabList = [
     value: '3'
   },
 ];
+
 function App() {
   const [activeTab, setActiveTab] = useState(tabList[0].value);
 
@@ -26,7 +27,6 @@ function App() {
     switch (activeTab) {
       case '1':  return <Question1 />;
       case '2':  return <Question2 />;
-      case '3':  return <Question1 />;
       default: return <></>;
     }
   }, [activeTab])
@@ -44,6 +44,7 @@ function App() {
             let isActive = tab.value === activeTab;
             return <button 
                       className={`btn-${isActive ? 'active': ''}`}  
+                      disabled={tab.value === '3'}
                       name='tab' 
                       value={tab.value} 
                       type='button'
